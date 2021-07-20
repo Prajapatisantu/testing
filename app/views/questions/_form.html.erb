@@ -1,0 +1,50 @@
+
+<div class="container">
+<center><h3>Create Question for Students </h3></center>
+<br>
+<%= form_with(model:@question) do |f| %>
+  <div>
+     <%= f.label :question_paper_id,"Question Paper",class:'form-label' %><br>
+     <%= f.select :question_paper_id,(QuestionPaper.all.map{|e| [e.name, e.id]}),class:'form-control' %>
+  </div>
+  <br>
+  <div>
+     <%= f.label :title,"Title", class:'form-label' %> 
+     <%= f.text_field :title, class:'form-control' %>
+  </div>
+  <br>
+  <div>
+     <%= f.label :option1,"Option1", class:'form-label' %> 
+     <%= f.text_field :option1, class:'form-control' %>
+  </div>
+  <br>
+   <div>
+     <%= f.label :option2,"Option2", class:'form-label' %> 
+     <%= f.text_field :option2, class:'form-control' %>
+  </div>
+  <br>
+   <div>
+     <%= f.label :option3,"Option3", class:'form-label' %> 
+     <%= f.text_field :option3, class:'form-control' %>
+  </div>
+  <br>
+   <div>
+     <%= f.label :option4,"Option4", class:'form-label' %> 
+     <%= f.text_field :option4, class:'form-control' %>
+  </div>
+  <br>
+  <div>
+     <%= f.label :teacher_id,class:'form-label' %><br>
+     <%= f.select :teacher_id,(Teacher.all.map{|e| [e.name, e.id]}),class:'form-control' %>
+  </div>
+   <br>
+  <div>
+     <%= f.label :admin_id,class:'form-label' %><br>
+     <%= f.select :admin_id,(Admin.all.map{|e| [e.name, e.id]}),class:'form-control' %>
+  </div>
+  <br /> 
+    <%= f.submit :submit,class:'btn btn-success' %>
+  </div>
+  <br>
+<% end %>
+</div>
