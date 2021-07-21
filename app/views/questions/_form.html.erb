@@ -3,6 +3,7 @@
 <center><h3>Create Question for Students </h3></center>
 <br>
 <%= form_with(model:@question) do |f| %>
+     <%= f.hidden_field :teacher_id, value: @teacher.id %>   
   <div>
      <%= f.label :question_paper_id,"Question Paper",class:'form-label' %><br>
      <%= f.select :question_paper_id,(QuestionPaper.all.map{|e| [e.name, e.id]}),class:'form-control' %>
@@ -33,16 +34,6 @@
      <%= f.text_field :option4, class:'form-control' %>
   </div>
   <br>
-  <div>
-     <%= f.label :teacher_id,class:'form-label' %><br>
-     <%= f.select :teacher_id,(Teacher.all.map{|e| [e.name, e.id]}),class:'form-control' %>
-  </div>
-   <br>
-  <div>
-     <%= f.label :admin_id,class:'form-label' %><br>
-     <%= f.select :admin_id,(Admin.all.map{|e| [e.name, e.id]}),class:'form-control' %>
-  </div>
-  <br /> 
     <%= f.submit :submit,class:'btn btn-success' %>
   </div>
   <br>

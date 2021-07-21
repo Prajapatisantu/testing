@@ -1,5 +1,5 @@
 class Teacher < ApplicationRecord
-   validates :name, presence: true
-   has_many :questions
+   has_many :questions, as: :questionable
    has_many :question_papers
+   accepts_nested_attributes_for :questions
 end

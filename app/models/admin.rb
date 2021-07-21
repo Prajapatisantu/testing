@@ -1,4 +1,4 @@
 class Admin < ApplicationRecord
-    # validates :name, presence: true
-    has_many :questions
+    has_many :questions, as: :questionable
+    accepts_nested_attributes_for :questions
 end
