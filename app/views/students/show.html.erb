@@ -1,0 +1,8 @@
+<br>
+<div class="container">
+<strong>Name:</strong> <%= @student.name %><br>
+<strong>Assigned paper:</strong> <%= @student.question_paper.name %><br><br>
+<%= link_to "Back" ,root_path %>
+<%= link_to "Give Answer", new_answer_path %>
+
+</div>

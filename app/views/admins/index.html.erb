@@ -1,0 +1,11 @@
+
+<br>
+<div>
+<% @admins.each do |admin| %>
+<strong style="padding:30px">Name: <%= admin.name %></strong>
+<%= link_to "Create Question",new_admin_question_path(admin) %>
+<%= link_to "Overview", admin_path(admin),style: 'padding:30px' %>
+<% end %>
+</div>
+
+

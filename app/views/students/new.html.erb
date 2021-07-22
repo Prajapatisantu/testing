@@ -7,12 +7,7 @@
   </div>
   <br>
   <div>
-     <%= f.label :question_paper_id,"Select Question Paper",class:'form-label' %><br>
-     <%= f.select :question_paper_id,(QuestionPaper.all.map{|e| [e.name, e.id]}),class:'form-control' %>
-  </div>
-  <br>
-  <div>
-    <%= f.submit :submit,class:'btn btn-success' %>
+    <%= f.submit :submit,class:'btn btn-dark' %>
   </div>
   <br>
 <% end %>

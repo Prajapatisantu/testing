@@ -4,12 +4,14 @@ class QuestionpapersController < ApplicationController
   end
 
   def new
+    @teacher = Teacher.find(params[:teacher_id])
     @questionpaper = QuestionPaper.new
   end
 
   def create
     @questionpaper = QuestionPaper.create(question_paper_params)
     if @questionpaper.save
+      redirect_to teachers_path
     else
       render :new
     end

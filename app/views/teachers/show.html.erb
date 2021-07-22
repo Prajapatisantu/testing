@@ -1,0 +1,20 @@
+<br>
+<% @teacher.question_papers.each do |tp| %>
+<strong> Paper Name: </strong> <%= tp.name%><br>
+<% end %>
+<br>
+<div class="container"><% @teacher.questions.each do |que| %>
+<div class="card">
+  <div class="card-header" style="background-color:#0B0A0A; color:white">
+    <%= que.id %>. <%= que.title %>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" style="padding-left:40px">A. <%= que.option1 %></li>
+    <li class="list-group-item" style="padding-left:40px">b. <%= que.option2 %></li>
+    <li class="list-group-item" style="padding-left:40px">c. <%= que.option3 %></li>
+    <li class="list-group-item" style="padding-left:40px">d. <%= que.option4 %></li>
+  </ul>
+</div>
+<br>
+<% end %>
+</div>

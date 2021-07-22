@@ -8,16 +8,21 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.create(student_params)
+    @student = Student.create!(student_params)
     if @student.save
+       redirect_to root_path
     else
       render :new
     end
   end
 
+  def show
+    @student = Student.find(params[:id])
+  end
+
   private
 
   def student_params
-    params.require(:student).permit(:name,:question_paper_id, :question_id)
+    params.require(:student).permit(:name,:question_paper_id)
   end
 end

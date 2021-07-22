@@ -1,0 +1,19 @@
+<br>
+<div class="container">
+<center><h3>Answer the Questions </h3></center>
+<br>
+<%= form_with do |f| %>  
+  
+  <div>
+     <%= f.radio_button :answer, class:'form-control' %><br>
+     <%= f.radio_button :answer, class:'form-control' %><br>
+     <%= f.radio_button :answer, class:'form-control' %><br>
+     <%= f.radio_button :answer, class:'form-control' %><br>
+  </div>
+  <br>
+  <div>
+    <%= f.submit :submit,class:'btn btn-dark' %>
+  </div>
+  <br>
+<% end %>
+</div>

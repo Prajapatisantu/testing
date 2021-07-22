@@ -1,19 +1,19 @@
 class QuestionsController < ApplicationController
-   before_action :set_question_id
-   
+   before_action :set_type_id
+    
   def index
-    @questions = Question.all
+    @questions = @questionable.questions
   end
 
   def new
-    @teacher = Teacher.find(params[:teacher_id])
-    @question = Question.new
+    # @teacher = Teacher.find(params[:teacher_id])
+    @question = @questionable.questions.new
   end
 
   def create
-    @question = Question.create!(question_params)
+    @question = @questionable.questions.create!(question_params)
     if @question.save
-      redirect_to questions_path
+      redirect_to students_path
     else
       render :new
     end
@@ -22,10 +22,10 @@ class QuestionsController < ApplicationController
   private
   
   def question_params
-    params.require(:question).permit(:title, :option1, :option2, :option3, :option4,:teacher_id, :admin_id, :question_paper_id)
+    params.require(:question).permit(:title, :option1, :option2, :option3, :option4, :question_paper_id)
   end
 
-  def set_question_id
+  def set_type_id
     resource, id = request.path.split('/')[1, 2]
     @questionable = resource.singularize.classify.constantize.find(id)
   end
