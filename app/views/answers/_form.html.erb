@@ -2,18 +2,41 @@
 <div class="container">
 <center><h3>Answer the Questions </h3></center>
 <br>
-<%= form_with do |f| %>  
-  
-  <div>
-     <%= f.radio_button :answer, class:'form-control' %><br>
-     <%= f.radio_button :answer, class:'form-control' %><br>
-     <%= f.radio_button :answer, class:'form-control' %><br>
-     <%= f.radio_button :answer, class:'form-control' %><br>
-  </div>
+<%= form_with(model:@answer) do |f| %> 
+   
+  <%= f.hidden_field :student_id, value: @student.id %>
+  <% count = 1 %> 
+  <% @student.question_paper.questions.each do |q| %>
+  <strong><%= q.id %>.<%= q.title %></strong>
+   <div class="form-check">
+     <%= f.hidden_field :ques1, value: q.id %>
+    <%#= f.hidden_field :"ques#{count}", value: q.id %>
+     <%= f.radio_button :"ans#{count}", q.option1, class:"form-check-input" %><%= q.option1 %> <br> 
+     <%= f.radio_button :"ans#{count}", q.option2, class:"form-check-input" %><%= q.option2 %> <br> 
+     <%= f.radio_button :"ans#{count}", q.option3, class:"form-check-input" %><%= q.option3 %> <br> 
+     <%= f.radio_button :"ans#{count}", q.option4, class:"form-check-input" %><%= q.option4 %> <br> 
+   </div>
+  <% count = count + 1 %>
   <br>
+  <% end %> 
   <div>
-    <%= f.submit :submit,class:'btn btn-dark' %>
+     <%= f.submit :submit,class:'btn btn-dark' %>
   </div>
   <br>
 <% end %>
 </div>
+
+
+
+
+
+
+
+
+
+
+  <%#= f.hidden_field :question_id, value: @student.question_paper.questions.ids %>
+ <%# <% @student.question_paper.questions.each do || %> 
+ <%# <% @student_questionpaper_id.id.questions.each do |q| %> 
+  <%#= @student_questionpaper_id.id.questions.find(23).title %>
+  <%# <%= @student_questionpaper.inspect %>

@@ -11,10 +11,6 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
   end
 
-  def list_paper
-    # @teacher = Teacher.find(params[:id])
-  end
-
   private
 
   def teacher_params

@@ -4,6 +4,11 @@ class AnswersController < ApplicationController
   end
 
   def new
+    p 111111111
+    @student = Student.find(params[:student_id])
+    # @questionpaper_question = QuestionPaper.find(params[:student_questionpaper_id])
+    p @student
+    p 111111111
     @answer = Answer.new
   end
 
@@ -21,6 +26,6 @@ class AnswersController < ApplicationController
   private
 
     def answer_params
-      params.require(:answer).permit(:answer,:question_id,:student_id)
+      params.require(:answer).permit(:ans1,:ques1,:student_id)
     end
 end
