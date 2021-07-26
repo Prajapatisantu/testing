@@ -5,19 +5,16 @@
 <%= form_with(model:@answer) do |f| %> 
    
   <%= f.hidden_field :student_id, value: @student.id %>
-   <% count = 1 %> 
   <% @student.question_paper.questions.each_with_index do |q,index| %>
     <strong><%= q.id %>.<%= q.title %></strong>
     <div class="form-check">
     
-     <%= f.hidden_field "answer[#{index}][question_id]", value: q.id %>
-     <%= f.hidden_field "answer[#{index}][answer]", value: q.option1 %>
-     <%# <%= f.radio_button "answer[0][question_id][answer]", q.option1, class:"form-check-input" %><%#= q.option1 %> <br>  
-     <%#= f.radio_button "#{count}", q.option2, class:"form-check-input" %><%#= q.option2 %> <br> 
-     <%#= f.radio_button "#{count}", q.option3, class:"form-check-input" %><%#= q.option3 %> <br> 
-     <%#= f.radio_button "#{q.id}][#{count}", q.option4, class:"form-check-input" %><%#= q.option4 %> <br> 
+     <%= f.hidden_field "questions[#{index}][question_id]", value: q.id %>
+     <%= f.radio_button "questions[#{index}][answer]", q.option1, class:"form-check-input" %><%= q.option1 %> <br>  
+     <%= f.radio_button "questions[#{index}][answer]", q.option2, class:"form-check-input" %><%= q.option2 %> <br> 
+     <%= f.radio_button "questions[#{index}][answer]", q.option3, class:"form-check-input" %><%= q.option3 %> <br> 
+     <%= f.radio_button "questions[#{index}][answer]", q.option4, class:"form-check-input" %><%= q.option4 %> <br> 
     </div>
-    <% count = count + 1 %>
    <br>
   <% end %> 
   <div>

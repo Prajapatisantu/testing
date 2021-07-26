@@ -1,13 +1,11 @@
 <br>
-<div>
+<%= link_to "Create Student",new_student_path %>
 <% @students.each do |student| %>
-<strong style="padding:30px">Name: <%= student.name %></strong>
-<%#= link_to "Select Question Paper",new_student_path(student), style: 'padding:30px' %>
-<%= link_to "Show",student_path(student), style:"margin-left:10px;" %><br>
-
-<% end %>
-
+<div class="card" style="margin-top:2px;">
+  <div class="card-body">
+    <h5 class="card-title"><%= student.name %></h5>
+    <%= link_to "Show",student_path(student), class:"card-link" %>
+    <%= link_to "Summary",answers_path(student_id: student.id), class:"card-link" %>
+  </div>
 </div>
-<br>
-<%= link_to "Create Student",new_student_path,style:"padding-left:30px;" %>
-
+<% end %>

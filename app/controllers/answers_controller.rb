@@ -1,31 +1,29 @@
 class AnswersController < ApplicationController
   def index
     @answers = Answer.all
+    @student = Student.find(params[:student_id])
   end
 
   def new
-    p 111111111
     @student = Student.find(params[:student_id])
-    # @questionpaper_question = QuestionPaper.find(params[:student_questionpaper_id])
-    p @student
-    p 111111111
     @answer = Answer.new
   end
 
-  def create
-    @answer = Answer.create(answer_params)
+  def create      
+    questions = params[:answer][:questions]
+    questions.each do |key, value|
+       @answer = Answer.create(
+       student_id: params[:answer][:student_id],
+       question_id: value [:question_id],
+       answer: value[:answer]
+      )
+    end
     if @answer.save
+      redirect_to root_path
     else
       render:new
     end
   end
 
-  def show
-  end
-
-  private
-
-    def answer_params
-      # params.require(:answer).permit(:answer1,:question_,:student_id)
-    end
+  
 end

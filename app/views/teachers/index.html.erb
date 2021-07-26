@@ -5,7 +5,7 @@
 <%= link_to "Create Question", new_teacher_question_path(teacher),style: 'padding:30px' %>
 <%= link_to "Create Question Paper",new_questionpaper_path(teacher_id: teacher.id),style: 'padding:30px' %>
 <%= link_to "Overview", teacher_path(teacher),style: 'padding:30px' %>
-<%#= link_to "See QuestionPaper",teachers_list_paper_path(teacher) %>
+<%= link_to "See Answers",answers_path(teacher) %>
 
 <% end %>
 </div>
