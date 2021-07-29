@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   def index
     @answers = Answer.all
-    @student = Student.find(params[:student_id])
+    @teacher = Teacher.find(params[:teacher_id])
   end
 
   def new

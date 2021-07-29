@@ -1,19 +1,20 @@
 <div class="container">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Questions</th>
-      <th scope="col">Answer</th>
-    </tr>
-  </thead>
-  <tbody>
-   <% @student.question_paper.questions.each do |qa| %>      
-    <tr>
-      <td><%= qa.title rescue "" %></td>
-      <td><%= qa.answer.answer rescue "Not Attempted" %></td>
-    </tr>
-   <% end %>
-  </tbody>
-</table>
-   
+  <% @teacher.question_papers.each do |qp| %>
+  <div class="answerDisplay">
+    <strong>QuestionPaper:</strong><span><%= qp.name rescue "" %></span><br>
+     <% qp.questions.each do |q| %> 
+       <%= q.id %>.<strong>Question:</strong><span><%= q.title %></span><br>
+        <% q.answer.each do |a| %>
+          <strong>Submited Students:</strong>
+          <span><%= a.student.name.capitalize %></span>
+          <div>
+          <strong><%= a.student.name.capitalize %> Answer:</strong>
+          <span><%= a.answer %></span>
+          </div>
+        <% end %>
+        <br>
+     <% end %>
+  </div>
+  <% end %>
 </div>
+<br>
