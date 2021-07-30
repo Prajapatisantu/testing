@@ -1,9 +1,9 @@
 <div class="container">
 <br>
 <%= form_with(model:@student, id: 'studentForm') do |f| %>
-  <div>
+  <div class="studentname_input">
      <%= f.label :name,"Name", class:'form-label' %> 
-     <%= f.text_field :name, class:'form-control',id: 'studentname' %>
+     <%= f.text_field :name, class:'form-control' %>
   </div>
   <br>
   <div>
@@ -12,4 +12,4 @@
   <br>
 <% end %>
 </div>
-<%= javascript_pack_tag 'formvalidation' %>
+<%#= javascript_pack_tag 'formvalidation' %>

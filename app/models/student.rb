@@ -2,7 +2,7 @@ class Student < ApplicationRecord
     belongs_to :question_paper, optional: true
     has_many :question 
     after_create :assign_question_paper
-    # validates :name, presence: true
+    validates :name, presence: true
     
     private
     def assign_question_paper

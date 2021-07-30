@@ -10,6 +10,7 @@ import "channels"
 import "bootstrap";
 import "../stylesheets/application";
 import "packs/formvalidation";
+import "packs/question_form_validate"
 
 Rails.start()
 Turbolinks.start()

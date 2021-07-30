@@ -1,1 +1,9 @@
 @import "bootstrap";
+
+.error {
+  color: red;
+}
+
+.form-control:focus {
+  border-color: red;
+}
